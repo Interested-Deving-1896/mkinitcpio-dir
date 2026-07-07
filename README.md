@@ -1,49 +1,75 @@
-﻿# Filesystem-in-subdirectory hook for “mkinitcpio” #
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# mkinitcpio-dir
 
-This “mkinitcpio” hook mounts the root file system from a subdirectory rather
-than the root directory of a partition. The “dir=” kernel parameter specifies
-which subdirectory. A leading slash (/) is allowed but not necessary.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/mkinitcpio-dir)
 
-This allows multiple separate operating systems to be installed in a single
-partition.
-For example a single partition could contain
-multiple OS filesystems and other shared files:
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-* /os/arch-x86-64/bin/
-* /os/arch-x86-64/etc/
-* . . .
-* /os/arch-i686/bin/
-* /os/arch-i686/etc/
-* . . .
-* /home/_user_/
-* /os/debian/ (potentially)
-* /os/win/WINDOWS/ (if a common filesystem was supported)
+## Architecture
 
-It is achieved by using a “bind mount” of the subdirectory.
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-## Installation ##
+## Install
 
-Add “dir” to the HOOKS list in /etc/mkinitcpio.conf:
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-    HOOKS+=" dir"
+```bash
+git clone https://github.com/Interested-Deving-1896/mkinitcpio-dir.git
+cd mkinitcpio-dir
+```
 
-Add a “dir=” parameter to the kernel command line
-(for example in /boot/grub/menu.lst).
-The path is relative to the file system of the “root” device. For example:
+## Usage
 
-> APPEND root=LABEL=_label_ dir=/os/arch-x86-64 ro
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
 
-## Issues ##
+## Configuration
 
-It’s also useful to mount the whole partition somewhere as well
-using /etc/fstab, although this means that
-all the files under the mounted OS directory
-will be visible under both mount points.
-Although I have not seen any serious problems,
-some programs complain about a circular file system loop:
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
 
-> find: File system loop detected
+## CI
 
-> du: WARNING: Circular directory structure.  
-> This almost certainly means that you have a corrupted file system.  
-> NOTIFY YOUR SYSTEM MANAGER.  
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/mkinitcpio-dir`](https://github.com/Interested-Deving-1896/mkinitcpio-dir) and mirrored through:
+
+```
+Interested-Deving-1896/mkinitcpio-dir  ──►  OpenOS-Project-OSP/mkinitcpio-dir  ──►  OpenOS-Project-Ecosystem-OOC/mkinitcpio-dir
+```
+
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
+
+## Contributors
+
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
